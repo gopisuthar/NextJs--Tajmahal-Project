@@ -1,0 +1,74 @@
+-----------------------------
+twilio/text
+-----------------------------
+URL: https://www.twilio.com/docs/content/twilio-text?code-sample=code-create-text-template&code-language=curl&code-sdk-version=default
+Limitation: Maximum 1,600 characters
+
+-----------------------------
+twilio/media
+-----------------------------
+URL: https://www.twilio.com/docs/content/twilio-media?code-sample=code-create-media-template&code-language=curl&code-sdk-version=default
+Limitation: valid media sample is required
+			Static media urls should resolve to publicly hosted media files
+			Only one type of media can be sent per approved variable
+			WhatsApp classifies approved templates into 1 of 3 types of media headers(Image, Video, Document)
+			Ex. If a template is approved with an image then a video cannot be sent using the same template.
+			
+			Supported MIME Types:
+			
+			URL: https://www.twilio.com/docs/content/content-types-overview
+
+			Images: JPG, JPEG, PNG
+			Documents: PDF, DOC, DOCX, PPTX, XLSX
+			Video: MP4 (with H.264 video codec and AAC audio)
+			Audio: OGG
+
+-----------------------------
+twilio/location
+-----------------------------
+URL: https://www.twilio.com/docs/content/twilio-location?code-sample=code-create-location-template&code-language=curl&code-sdk-version=default
+Limitation: Location templates are only available once the end user is in a 24 hr session.
+			Location templates are not supported for approval on WhatsApp and can't be submitted for approval.
+			
+-----------------------------
+twilio/list-picker
+-----------------------------
+URL: https://www.twilio.com/docs/content/twiliolist-picker?code-sample=code-create-list-picker-template&code-language=curl&code-sdk-version=default
+Limitation: List-picker templates are only available once the end user is in a 24 hr session. They can not initiate a business initiated session.
+			body: Maximum 1024 characters
+			button: It cannot be an empty string and must be unique within the message.
+			items: Minimum: 1 item; maximum: 10 items
+			item: Maximum: 24 characters
+			id: Maximum: 200 characters
+
+-----------------------------
+twilio/call-to-action
+-----------------------------
+URL: https://www.twilio.com/docs/content/twilio-call-to-action?code-sample=code-create-call-to-action-template&code-language=curl&code-sdk-version=default
+Limitation: Call-to-action buttons can only be sent via WhatsApp as approved templates.
+			 URL must resolve to a publicly accessible website If you are using a URL button
+			 body: Maximum 640 characters
+			 actions: Up to 2 buttons for Call-to-Action button types: PHONE_NUMBER or URL. 
+			          Please note only a single PHONE_NUMBER or URL button can be used at a time.
+					  If two buttons are used, one must be a URL and the other a PHONE_NUMBER.
+					  Please use “type” and “title” actions to create call-to-action buttons within the actions array.
+
+-----------------------------
+twilio/quick-reply
+-----------------------------
+URL: https://www.twilio.com/docs/content/twilio-text?code-sample=code-create-text-template&code-language=curl&code-sdk-version=default
+Limitation: body: Maximum 1,024 characters
+			actions: Up to 3 buttons can be created for Quick Reply buttons. 
+					 Please use “type,” “title”, and “id” actions to create quick reply buttons within the actions array.
+
+-----------------------------
+twilio/card
+-----------------------------
+URL: https://www.twilio.com/docs/content/twiliocard?code-sample=code-create-card-template&code-language=curl&code-sdk-version=defaultLimitation: Maximum 1,600 characters
+limitation: On WhatsApp, a card must be approved as a template before it can be sent.
+			If you use variables with twilio/card, then additional approval steps are required
+			If a twilio/card template is created with media and with variables and you plan to submit this template to WhatsApp for approval, a valid media sample is required. Static media urls should resolve to publicly hosted media files. Variable media urls should include a valid media URL suffix in the variable declaration.
+			same limitation as per twilio-media
+			WhatsApp footers translate to subtitles in Twilio/cards.
+			title: Maximum: 1024 characters
+			
